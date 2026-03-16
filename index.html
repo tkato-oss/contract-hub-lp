@@ -25,15 +25,16 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(255,255,255,0.85);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:all .3s}
 nav.scrolled{border-bottom-color:var(--border)}
-.nav-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-.nav-logo img{width:34px;height:34px;border-radius:8px}
-.nav-logo-text{font-size:15px;font-weight:700;letter-spacing:.3px;color:var(--blue-800)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);flex-shrink:0}
+.nav-left img{height:28px;object-fit:contain}
+.nav-links{display:flex;gap:20px;align-items:center;flex:1;justify-content:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:12px;font-weight:500;transition:color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--blue-600)}
 .nav-cta{padding:8px 22px;border-radius:var(--radius-sm);background:var(--blue-600);color:#fff!important;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;box-shadow:0 2px 8px rgba(37,99,235,0.2)}
 .nav-cta:hover{background:var(--blue-700);transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.nav-right img{height:36px;object-fit:contain}
 
 section{max-width:1100px;margin:0 auto;padding:0 32px}
 .section-label{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--blue-600);margin-bottom:10px}
@@ -50,6 +51,7 @@ section{max-width:1100px;margin:0 auto;padding:0 32px}
 .hero-tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;animation:fadeUp .8s ease .3s both}
 .tool-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--radius-pill);background:var(--white);border:1px solid var(--border);font-size:12px;color:var(--text-secondary);font-weight:500;transition:all .3s;box-shadow:var(--shadow-sm)}
 .tool-chip:hover{border-color:var(--blue-200);background:var(--blue-50)}
+.tool-chip img{width:16px;height:16px;object-fit:contain;flex-shrink:0}
 .tool-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .hero-actions{display:flex;gap:14px;justify-content:center;animation:fadeUp .8s ease .4s both}
 .btn-primary{padding:14px 36px;border-radius:var(--radius-sm);background:var(--blue-600);color:#fff;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,0.2)}
@@ -189,6 +191,7 @@ footer{padding:24px 32px;border-top:1px solid var(--border);text-align:center;fo
 
 @media(max-width:768px){
   .nav-links{display:none}
+  .nav-right{display:none}
   section{padding-left:20px;padding-right:20px}
   .hero-actions{flex-direction:column;align-items:center}
   .hero-flow{gap:4px}
@@ -203,11 +206,11 @@ footer{padding:24px 32px;border-top:1px solid var(--border);text-align:center;fo
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="https://tkato-oss.github.io/opsguide-logo.jpg" alt="OpsGuide">
-      <span class="nav-logo-text">Contract Hub</span>
+    <a href="#" class="nav-left">
+      <img src="img/portament.jpg" alt="PORTAMENT">
     </a>
     <div class="nav-links">
+      <a href="#">Contract Hub</a>
       <a href="#problem">課題</a>
       <a href="#solution">機能</a>
       <a href="#demo">デモ</a>
@@ -215,13 +218,15 @@ footer{padding:24px 32px;border-top:1px solid var(--border);text-align:center;fo
       <a href="#compare">比較</a>
       <a href="#cta" class="nav-cta">お問い合わせ</a>
     </div>
+    <a href="#" class="nav-right">
+      <img src="img/opsguide.jpg" alt="OpsGuide あなたの業務改革パートナー">
+    </a>
   </div>
 </nav>
 
 <div class="hero">
   <div>
     <div class="hero-badge">
-      <img src="https://tkato-oss.github.io/opsguide-logo.jpg" alt="">
       Communication Hub × OpsGuide 連携
     </div>
     <h1>チャットから契約締結まで、<br><span class="gradient">ワンストップで。</span></h1>
@@ -231,12 +236,12 @@ footer{padding:24px 32px;border-top:1px solid var(--border);text-align:center;fo
       ツール間の手作業をゼロにします。
     </p>
     <div class="hero-tools">
-      <span class="tool-chip"><span class="tool-dot" style="background:#E01E5A"></span>Slack</span>
-      <span class="tool-chip"><span class="tool-dot" style="background:#4285F4"></span>Gmail</span>
-      <span class="tool-chip"><span class="tool-dot" style="background:#EE3424"></span>Chatwork</span>
-      <span class="tool-chip"><span class="tool-dot" style="background:#6264A7"></span>Teams</span>
-      <span class="tool-chip"><span class="tool-dot" style="background:#00C73C"></span>LINE WORKS</span>
-      <span class="tool-chip"><span class="tool-dot" style="background:#0084FF"></span>Messenger</span>
+      <span class="tool-chip"><img src="img/slack.png" alt="Slack">Slack</span>
+      <span class="tool-chip"><img src="img/gmail.webp" alt="Gmail">Gmail</span>
+      <span class="tool-chip"><img src="img/chatwork.svg" alt="Chatwork">Chatwork</span>
+      <span class="tool-chip"><img src="img/teams.svg" alt="Teams">Teams</span>
+      <span class="tool-chip"><img src="img/lineworks.png" alt="LINE WORKS">LINE WORKS</span>
+      <span class="tool-chip"><img src="img/messenger.jpg" alt="Messenger">Messenger</span>
     </div>
     <div class="hero-actions">
       <a href="#demo" class="btn-primary">デモを体験する</a>
